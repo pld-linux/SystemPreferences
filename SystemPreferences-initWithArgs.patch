@@ -1,0 +1,14 @@
+diff -Nur SystemPreferences-1.0.2.orig/SystemPreferences/main.m SystemPreferences-1.0.2.initWithArgs/SystemPreferences/main.m
+--- SystemPreferences-1.0.2.orig/SystemPreferences/main.m	2007-11-04 13:25:08.000000000 -0700
++++ SystemPreferences-1.0.2.initWithArgs/SystemPreferences/main.m	2008-11-19 21:33:59.000000000 -0700
+@@ -7,6 +7,10 @@
+ int main(int argc, char **argv, char** env)
+ {
+ 	CREATE_AUTORELEASE_POOL (pool);
++#ifdef GS_PASS_ARGUMENTS
++  [NSProcessInfo initializeWithArguments: argv count: argc environment:
++env];
++#endif
+ 	NSApplication *theApp = [NSApplication sharedApplication];  
+ 	createMenu();  
+ 	[theApp setDelegate: [SystemPreferences systemPreferences]];  

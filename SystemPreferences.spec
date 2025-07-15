@@ -25,7 +25,7 @@ Header files for PreferencesPane framework.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 export GNUSTEP_MAKEFILES=%{_datadir}/GNUstep/Makefiles
